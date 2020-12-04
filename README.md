@@ -48,7 +48,7 @@ note: right now, the top phrases returned are often heavily skewed by automated 
   - **If you'd like to view your top 200 phrases**, in the format `(phrase, total number of occurrences)`. If you indicate yes, it will print out those phrases sorted from highest to lowest frequency.
   - The output of this script is `js/your_messenger_wrapped.js`.
 
-4. In the `2020messengerwrapped` directory, open `index.html` to view and download your Messenger Wrapped image!
+5. In the `2020messengerwrapped` directory, open `index.html` to view and download your Messenger Wrapped image!
 
 Some more notes on the `index.html` file and its output:
 - Google Fonts is used to provide the font "Montserrat".
