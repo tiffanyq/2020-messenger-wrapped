@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Messenger Wrapped</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/html2canvas.min.js"></script> <!-- https://github.com/niklasvh/html2canvas -->
+    <script src="js/your_messenger_wrapped.js"></script>
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div id="body-gradient">
+      <div id="saved-photo-gradient">
+        <div id="container">
+          <div id="profile-photo-gradient"></div>
+          <div id="profile-photo"></div>
+          <div id="top-row" class="row">
+            <div class="block">
+              <h1 id="top-people-or-num-messages-sent">Top People</h1>
+              <ol id="top-people">
+              </ol>
+            </div>
+            <div class="block">
+              <h1>Your Top Phrases</h1>
+              <ol id="top-phrases">
+              </ol>
+            </div>
+          </div>
+          <div id="bottom-row" class="row">
+            <div class="block">
+              <h1>Total Messages Sent</h1>
+              <p id="total-messages"></p>
+            </div>
+            <div class="block">
+              <h1>Total Reacts &amp; Stickers Sent</h1>
+              <p id="total-reacts-and-stickers"></p>
+            </div>
+        </div>
+          <div id="footer" onclick="saveImage()">
+            <a href="https://www.instagram.com/anotherbrowsertab/">&#64;anotherbrowsertab</a>
+            <span>&#35;MESSENGERWRAPPED</span>
+          </div>
+        </div>
+      </div>
+      <a id="save-image" download="messenger_wrapped.png">Save image</a>
+    </div>
+  </body>
+</html>
