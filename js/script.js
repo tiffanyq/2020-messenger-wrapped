@@ -46,9 +46,14 @@ window.onload = function() {
   totalReactsAndStickers.innerText = yourData[TOTAL_REACTS_AND_STICKERS].toLocaleString();
 
   // prepare download link
+  // workaround for html2canvas white strip: scroll to (0,0) for screenshot
+  const oldx = window.scrollX;
+  const oldy = window.scrollY;
+  window.scroll(0,0);
   html2canvas(
-    document.getElementById("saved-photo-gradient"),
+    document.getElementById("saved-photo-gradient")
   ).then(function(canvas) {
     saveButton.href = canvas.toDataURL('image/png');  
   });
+  window.scroll(oldx,oldy);
 }
