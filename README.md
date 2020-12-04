@@ -8,11 +8,11 @@ I wanted to share it here in case anyone would like to try this out on their own
 
 ![Example output from Messenger Wrapped](./example_output.png)
 
-##To run, you will need:
+## To run, you will need:
 - Python 3
 - Chrome or Firefox browser (also tested Safari, where the save image button does not work--these are just the browsers I have tested so far!)
 
-##This uses the following external resources:
+## This uses the following external resources:
 - [Google Fonts](https://fonts.google.com/)
 - [html2canvas](https://github.com/niklasvh/html2canvas)
 
