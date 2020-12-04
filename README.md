@@ -8,6 +8,8 @@ This code is very experimental and not well tested as of early December 2020; I 
 
 ![Example output from Messenger Wrapped](./example_output.png)
 
+note: right now, the top phrases returned are often heavily skewed by automated messages from games (e.g. Words With Friends Day 1, etc)!
+
 ## To run Messenger Wrapped, you will need:
 - Python 3
 - Chrome or Firefox browser (also tested Safari, where the save image button does not work, but it is possible to view the image and then screenshot it in that browser. These are just the browsers I have tested so far!)
