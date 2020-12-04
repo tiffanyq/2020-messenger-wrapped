@@ -42,10 +42,11 @@ if __name__ == "__main__":
 
           # Track number of messages sent by different people
           for m in data['messages']:
-            if m['sender_name'] in people:
-              people[m['sender_name']] = people[m['sender_name']] + 1
+            sender_name = m['sender_name']
+            if sender_name in people:
+              people[sender_name] = people[sender_name] + 1
             else: 
-              people[m['sender_name']] = 1
+              people[sender_name] = 1
 
             # Track reacts that you give
             if 'reactions' in m:
@@ -54,7 +55,7 @@ if __name__ == "__main__":
                   total_reacts_and_stickers = total_reacts_and_stickers + 1
 
             # Also track stickers that you send
-            if 'sticker' in m and m['sender_name'] == your_name:
+            if 'sticker' in m and sender_name == your_name:
               total_reacts_and_stickers = total_reacts_and_stickers + 1
 
             # Extract 5-word phrases from your messages
@@ -86,7 +87,7 @@ if __name__ == "__main__":
       print('\n')
 
   print('\nWould you like to display names or the number of messages people sent in your Messenger Wrapped?')
-  share_names = input('Type "names" (with no quotation marks) for names; type anything else to substitute in the number of messages instead:\n')
+  share_names = input('Type "names" (with no quotation marks) for names; type anything else to substitute in the number of messages instead:\n').lower()
   top_people = [p[0] for p in people[:min(len(people), NUM_TOP_PEOPLE_AND_PHRASES)]] if share_names == 'names' else [p[1] for p in people[:min(len(people), NUM_TOP_PEOPLE_AND_PHRASES)]]
   
   phrases = sorted(phrases.items(), key=lambda x: x[1], reverse=True)
