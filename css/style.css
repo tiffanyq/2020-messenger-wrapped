@@ -49,20 +49,12 @@ h1 {
 }
 
 ol {
-  list-style: none;
   padding-left: 0;
   margin-left: 14px;
 }
 
-ol li {
-  counter-increment: custom;
-}
-
-ol li:before {
-  content: counter(custom) " ";   
+li::marker {
   color: #ffffff;
-  list-style-position: outside;
-  margin-left: -0.8em;
 }
 
 #profile-photo {
