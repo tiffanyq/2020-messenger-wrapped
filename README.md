@@ -1,6 +1,7 @@
 # 2020 Messenger Wrapped
 
 Designed to run locally so that you don't have to upload your Messenger data elsewhere to generate this image.
+
 Download your own Facebook Messenger data, use the `generate_messenger_wrapped.py` script to run through it, and then open `index.html` to view and download a "Messenger Wrapped" image!
 
 This code is very experimental and not super well tested as of early December 2020; I built this to look through my own Messenger data from 2020 after seeing lots of 2020 Spotify Wrapped data floating around.
