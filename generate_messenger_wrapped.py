@@ -28,7 +28,6 @@ top_phrases = []
 phrase_length = 4 # default: 4
 
 if __name__ == "__main__":
-  print(string.punctuation)
   your_name = input('\nPlease input your name as shown on Messenger (so your top person is not you in the generated data!). Capitalization and whitespace matter:\n')
   # determine phrase length to search for
   temp_phrase_length = input('\nHow many words should your most frequent phrases contain? Enter 3, 4, 5, or 6 (default is 4):\n')
@@ -62,13 +61,10 @@ if __name__ == "__main__":
             if 'content' in m and m['sender_name'] == your_name:
               s = m['content'].encode('latin1').decode('utf8').lower().translate(str.maketrans('', '', string.punctuation))
               words = s.split()
-              print(words)
               num_words = len(words)
               if num_words >= phrase_length:
                 for i in range(0, num_words-phrase_length):
                   phrase = " ".join(words[i:phrase_length+i])
-                  # this is kind of fun to see if you want to see this all print out
-                  # print(phrase)
                   if phrase in phrases:
                     phrases[phrase] = phrases[phrase] + 1
                   else:

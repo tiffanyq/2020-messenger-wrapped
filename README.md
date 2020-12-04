@@ -9,11 +9,11 @@ I wanted to share it here in case anyone would like to try this out on their own
 
 ![Example output from Messenger Wrapped](./example_output.png)
 
-## To run, you will need:
+## To run Messenger Wrapped, you will need:
 - Python 3
 - Chrome or Firefox browser (also tested Safari, where the save image button does not work--these are just the browsers I have tested so far!)
 
-## This uses the following external resources:
+## Messenger Wrapped uses the following external resources:
 - [Google Fonts](https://fonts.google.com/)
 - [html2canvas](https://github.com/niklasvh/html2canvas)
 
@@ -48,6 +48,8 @@ I wanted to share it here in case anyone would like to try this out on their own
   - The output of this script is `js/your_messenger_wrapped.js`.
 
 4. In the `2020messengerwrapped` directory, open `index.html` to view and download your Messenger Wrapped image!
+
+Some more notes on the `index.html` file and its output:
 - Google Fonts is used to provide the font "Montserrat".
 - html2canvas is used to generate a canvas that is then turned into the PNG file downloaded upon clicking the "save image" button.
 - The image is generated using the data in `js/your_messenger_wrapped.js`. Edit the values in that file to update the Messenger Wrapped image.
