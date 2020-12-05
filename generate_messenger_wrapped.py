@@ -43,7 +43,7 @@ if __name__ == "__main__":
   # ignore certain senders upon request.
   print('\nSENDERS TO IGNORE')
   print('(Press ENTER if there are no senders you wish to ignore.)')
-  senders_to_ignore = input('Are there any senders you would like to ignore when identifying your top senders of the year? \n Please separate phrases with commas. Capitalization and whitespace matter: e.g. Adam Baker, Clark Davis, Evans Frank\n')
+  senders_to_ignore = input('Are there any senders you would like to ignore when identifying your top senders of the year? \n Please separate phrases with commas. Capitalization and whitespace matter: e.g. Abcd Efgh, Ijkl Mnop, Qrst Uvwx\n')
   senders_to_ignore = [] if not senders_to_ignore else [p.strip() for p in senders_to_ignore.split(',')]
 
   for dir, _, files in os.walk(MESSENGER_DIR):
