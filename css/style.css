@@ -70,6 +70,11 @@ li::marker {
   z-index: 2;
 }
 
+#profile-photo img {
+  width: 235px;
+  height: 235px;
+}
+
 #profile-photo-gradient {
   width: 310px;
   height: 180px;
@@ -118,19 +123,28 @@ li::marker {
   border-bottom-right-radius: 7px;
 }
 
-#save-image {
+.save-info {
   position: fixed;
-  top: 50px;
   right: 50px;
-  font-size: 36px;
+  color: #340602;
+  background: #ffffff;
   font-family: Montserrat, sans-serif;
-  text-transform: uppercase;
+}
+
+#screenshot-image {
+  display: none;
+  font-size: 22px;
+  top: 20px;
+  width: 200px;
+}
+
+#save-image {
+  top: 50px;
+  font-size: 36px;
   border-radius: 0;
   border: 0;
   padding: 20px 25px;
   z-index: 3;
-  color: #340602;
-  background: #ffffff;
 }
 
 #save-image:hover {

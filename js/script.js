@@ -9,6 +9,7 @@ const TOTAL_REACTS_AND_STICKERS = "total_reacts_and_stickers";
 const TOTAL_MESSAGES = "total_messages";
 const TOP_PHRASES = "top_phrases";
 const SHARE_NAMES = "share_names";
+const CUSTOM_IMAGE = "custom_image";
 
 window.onload = function() {
   const topPeopleHeading = document.getElementById("top-people-or-num-messages-sent");
@@ -45,15 +46,26 @@ window.onload = function() {
   // populate total reacts and stickers sent
   totalReactsAndStickers.innerText = yourData[TOTAL_REACTS_AND_STICKERS].toLocaleString();
 
-  // prepare download link
-  // workaround for html2canvas white strip: scroll to (0,0) for screenshot
-  const oldx = window.scrollX;
-  const oldy = window.scrollY;
-  window.scroll(0,0);
-  html2canvas(
-    document.getElementById("saved-photo-gradient")
-  ).then(function(canvas) {
-    saveButton.href = canvas.toDataURL('image/png');  
-  });
-  window.scroll(oldx,oldy);
+  // if custom image is provided, add it
+  if (yourData[CUSTOM_IMAGE] !== "") {
+    const profilePhotoContainer = document.getElementById("profile-photo");
+    const screenshotImage = document.getElementById("screenshot-image");
+    const profilePhoto = document.createElement("img");
+    profilePhoto.src = "./images/" + yourData[CUSTOM_IMAGE];
+    profilePhotoContainer.appendChild(profilePhoto);
+    saveButton.style.display = "none";
+    screenshotImage.style.display = "block";
+  } else {
+    // otherwise, prepare save image link
+    // workaround for html2canvas white strip: scroll to (0,0) for screenshot
+    const oldx = window.scrollX;
+    const oldy = window.scrollY;
+    window.scroll(0,0);
+    html2canvas(
+      document.getElementById("saved-photo-gradient")
+    ).then(function(canvas) {
+      saveButton.href = canvas.toDataURL('image/png');
+    });
+    window.scroll(oldx,oldy);
+  }
 }

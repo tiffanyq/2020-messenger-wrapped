@@ -41,8 +41,9 @@ note: right now, the top phrases returned are often heavily skewed by automated 
 - This script will ask for several inputs:
   - **Your name as used on Facebook/Messenger**. This is so that your name is recognized while going through your data so that messages, reactions, and stickers are properly attributed (or not attributed) to you.
     - Capitalization and whitespace/spaces matter.
+  - **The names of any senders you would like to omit from your list of top senders**, separated by commas.
   - **The length of your top phrases that you would like to look for in messages you sent, measured by number of words**. This must be a number between 3 and 8 inclusive. The default number of words in a phrase is 4.
-  - **Any phrases you would like to ignore when identifying your most commonly used phrases**, separated by commas. Please omit punctuation from these phrases. If any of these phrases are found in a message that you send, that entire message will be ignored when counting up your most frequently used phrases!
+  - **Any phrases you would like to omit from your list of most commonly used phrases**, separated by commas. Please omit punctuation from these phrases. If any of these phrases are found in a message that you send, that entire message will be ignored when counting up your most frequently used phrases.
   - **If you'd like to view the names of the 25 people who sent you the most messages as found in your data**, in the format `(name, total number of messages that person sent you)`. If you indicate yes, it will print out those names sorted from most messages sent to least messages sent.
     - I don't think this script differentiates between different people who use the same display name on Facebook :(
   - **Which you would prefer to share in your Messenger Wrapped file**: the *names* of the 5 people who sent you the most messages this year, or the *number of messages sent* by the 5 people that sent you the most messages this year. Type "names" to share the names, and type anything else to share the numbers instead.
@@ -50,6 +51,7 @@ note: right now, the top phrases returned are often heavily skewed by automated 
   - The output of this script is `js/your_messenger_wrapped.js`.
 
 5. In the `2020messengerwrapped` directory, open `index.html` to view and download your Messenger Wrapped image!
+- If you'd like to add a custom image into the square, put an image named `photo.png` or `photo.jpg` into the `images/` directory. **If this is done, the Save Image button will not work**. Please take a screenshot of the page to properly capture Messenger Wrapped with the custom photo included.
 
 Some more notes on the `index.html` file and its output:
 - Google Fonts is used to provide the font "Montserrat".
