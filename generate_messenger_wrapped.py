@@ -40,6 +40,11 @@ if __name__ == "__main__":
   print('(Press ENTER if there are no phrases you wish to ignore.)')
   phrases_to_ignore = input('Are there any phrases you would like to ignore when identifying your top phrases of the year? If any of these phrases are found in a message, the whole message will be ignored for the purpose of identifying top phrases.\n Please ignore punctuation (parentheses, apostrophes, etc) and separate phrases with commas, e.g. Words with Friends, The video chat ended, missed your call\n')
   phrases_to_ignore = [] if not phrases_to_ignore else [p.strip() for p in phrases_to_ignore.lower().split(',')]
+  # ignore certain senders upon request.
+  print('\nSENDERS TO IGNORE')
+  print('(Press ENTER if there are no senders you wish to ignore.)')
+  senders_to_ignore = input('Are there any senders you would like to ignore when identifying your top senders of the year? \n Please separate phrases with commas. Capitalization and whitespace matter: e.g. Adam Baker, Clark Davis, Evans Frank\n')
+  senders_to_ignore = [] if not senders_to_ignore else [p.strip() for p in senders_to_ignore.split(',')]
 
   for dir, _, files in os.walk(MESSENGER_DIR):
     for file in files:
@@ -90,6 +95,10 @@ if __name__ == "__main__":
   if your_name in people:
     total_messages = people[your_name]
   people.pop(your_name, None)
+
+  # remove ignored senders from the list
+  for sender_name in senders_to_ignore:
+    people.pop(sender_name, None)
 
   people = sorted(people.items(), key=lambda x: x[1], reverse=True)
 
