@@ -8,8 +8,6 @@ This code is very experimental and not well tested as of early December 2020; I 
 
 ![Example output from Messenger Wrapped](./example_output.png)
 
-note: right now, the top phrases returned are often heavily skewed by automated messages from games (e.g. Words With Friends Day 1, etc)!
-
 ## To run Messenger Wrapped, you will need:
 - Python 3
 - Chrome or Firefox browser (also tested Safari, where the save image button does not work, but it is possible to view the image and then screenshot it in that browser. These are just the browsers I have tested so far!)
@@ -42,6 +40,7 @@ note: right now, the top phrases returned are often heavily skewed by automated 
   - **Your name as used on Facebook/Messenger**. This is so that your name is recognized while going through your data so that messages, reactions, and stickers are properly attributed (or not attributed) to you.
     - Capitalization and whitespace/spaces matter.
   - **The names of any senders you would like to omit from your list of top senders**, separated by commas.
+  - **Whether or not you want to include group chat messages when identifying your top senders**. If you indicate no, only chats between 2 participants (you and some other person) will be used to identify your top senders.
   - **The length of your top phrases that you would like to look for in messages you sent, measured by number of words**. This must be a number between 3 and 8 inclusive. The default number of words in a phrase is 4.
   - **Any phrases you would like to omit from your list of most commonly used phrases**, separated by commas. Please omit punctuation from these phrases. If any of these phrases are found in a message that you send, that entire message will be ignored when counting up your most frequently used phrases.
   - **If you'd like to view the names of the 25 people who sent you the most messages as found in your data**, in the format `(name, total number of messages that person sent you)`. If you indicate yes, it will print out those names sorted from most messages sent to least messages sent.

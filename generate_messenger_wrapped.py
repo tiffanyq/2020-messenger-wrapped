@@ -29,12 +29,16 @@ phrase_length = 4 # default: 4
 
 if __name__ == "__main__":
   print('\nYOUR NAME')
-  your_name = input('Please input your name as shown on Messenger (so your top person is not you in the generated data!). Capitalization and whitespace matter:\n')
+  your_name = input('Please input your name as shown on Messenger (so your top person is not you in the generated data!). Capitalization and whitespace matter:\n').strip()
   # omit certain senders upon request.
   print('\nSENDERS TO OMIT')
   print('(Press ENTER if there are no senders you wish to omit from your list of top senders.)')
   senders_to_omit = input('Are there any senders you would like to omit from your list of top senders? \n Please separate phrases with commas. Capitalization and whitespace matter: e.g. Person One, Person Two, Person Three\n')
   senders_to_omit = [] if not senders_to_omit else [p.strip() for p in senders_to_omit.split(',')]
+  # include/exclude group chats
+  print('\nGROUP CHATS')
+  include_group_chats = input('Would you like to include messages sent in group chats when determining who sent you the most messages this year? (yes/no)\n').lower().strip()
+  include_group_chats = True if include_group_chats == 'yes' or include_group_chats == 'y' else False
   # determine phrase length to search for
   print('\nPHRASE LENGTH')
   temp_phrase_length = input('How many words should your most frequent phrases contain? Enter 3, 4, 5, or 6 (default is 4):\n')
@@ -51,14 +55,16 @@ if __name__ == "__main__":
       if file == 'message_1.json':
         with open(os.path.join(dir, file)) as json_file:
           data = json.load(json_file)
-
+          is_group_chat = len(data['participants']) > 2
           # Track number of messages sent by different people
           for m in data['messages']:
             sender_name = m['sender_name']
-            if sender_name in people:
-              people[sender_name] = people[sender_name] + 1
-            else: 
-              people[sender_name] = 1
+            # only count messages towards top senders if it satisfies user's preference
+            if include_group_chats or not is_group_chat:
+              if sender_name in people:
+                people[sender_name] = people[sender_name] + 1
+              else:
+                people[sender_name] = 1
 
             # Track reacts that you give
             if 'reactions' in m:
@@ -103,7 +109,7 @@ if __name__ == "__main__":
   people = sorted(people.items(), key=lambda x: x[1], reverse=True)
 
   print('\nVIEW TOP MESSAGE SENDERS')
-  print_people = input('Would you like to view the names and number of messages sent by the top 25 people who sent you the most messages this year? (yes/no)\n').lower()
+  print_people = input('Would you like to view the names and number of messages sent by the top 25 people who sent you the most messages this year? (yes/no)\n').lower().strip()
   if print_people == 'yes' or print_people == 'y':
     for i in range(0, min(len(people), NUM_PEOPLE_TO_PRINT)):
       print(people[i])
@@ -115,7 +121,7 @@ if __name__ == "__main__":
 
   phrases = sorted(phrases.items(), key=lambda x: x[1], reverse=True)
   print('\nVIEW MOST COMMON PHRASES')
-  print_phrases = input('Would you like to view your top 100 most frequently used phrases? (yes/no)\n').lower()
+  print_phrases = input('Would you like to view your top 100 most frequently used phrases? (yes/no)\n').lower().strip()
   if print_phrases == 'yes' or print_phrases == 'y': 
     for i in range(0, min(len(phrases), NUM_PHRASES_TO_PRINT)):
       print(phrases[i])
