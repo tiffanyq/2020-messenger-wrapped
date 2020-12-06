@@ -49,9 +49,9 @@ note: right now, the top phrases returned are often heavily skewed by automated 
   - **Which you would prefer to share in your Messenger Wrapped file**: the *names* of the 5 people who sent you the most messages this year, or the *number of messages sent* by the 5 people that sent you the most messages this year. Type "names" to share the names, and type anything else to share the numbers instead.
   - **If you'd like to view your top 100 phrases**, in the format `(phrase, total number of occurrences)`. If you indicate yes, it will print out those phrases sorted from highest to lowest frequency.
   - The output of this script is `js/your_messenger_wrapped.js`.
+  - **If you'd like to add a custom image to your Messenger Wrapped**. Please specify the name of the file including its file type, e.g. "photo.jpg". Add this file to the `images` directory. **If this is done, the Save Image button will not work**. Please take a screenshot of the page to capture Messenger Wrapped with the custom photo included.
 
 5. In the `2020messengerwrapped` directory, open `index.html` to view and download your Messenger Wrapped image!
-- If you'd like to add a custom image into the square, put an image named `photo.png` or `photo.jpg` into the `images/` directory. **If this is done, the Save Image button will not work**. Please take a screenshot of the page to properly capture Messenger Wrapped with the custom photo included.
 
 Some more notes on the `index.html` file and its output:
 - Google Fonts is used to provide the font "Montserrat".
